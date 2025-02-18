@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+  rpc AuthenticateCredentials (AuthenticateCredentialsRequest) returns (AuthenticateCredentialsResponse);
+  rpc AuthenticateToken (AuthenticateTokenRequest) returns (AuthenticateTokenResponse);
+}
+
+message AuthenticateCredentialsRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AuthenticateTokenRequest {
+  string token = 1;
+  string platform = 2;
+}
+
+message AuthenticateCredentialsResponse {
+  string token = 1;
+  string error = 2; 
+}
+
+message AuthenticateTokenResponse {
+  string token = 1;
+  string error = 2; 
+}
